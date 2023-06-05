@@ -47,8 +47,32 @@ export class Home extends React.Component {
                   </ul>
               </div>
               <div class = "recipes">
-                <h1>Example Recipe</h1>
-                <p>This is example text. The box will expand based on # of details</p>
+                <div class = "recipe-header">
+                  <div class = "recipe-title">
+                    <h1>Example Title</h1>
+                  </div>
+                  <div class = "recipe-category">
+                    <h3>Example Category</h3>
+                  </div>
+                </div>
+                <div class = "recipe-image">
+                </div>
+                <div class = "ingredients-list">
+                  <ul>
+                  </ul>
+                </div>
+                <div class = "recipe-notes">
+
+                </div>
+                <div class = "recipe-cookware">
+
+                </div>
+                <div class = "cook-prep-time">
+                  
+                </div>
+                <div class = "procedure">
+
+                </div>
               </div>
             </div>
         </div>)
