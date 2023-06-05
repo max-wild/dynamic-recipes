@@ -68,10 +68,6 @@ export class Home extends React.Component {
                     <li>Pork Shoulder</li>
                   </ul>
                 </div>
-                <div class = "recipe-notes">
-                  <p><strong>Notes: </strong></p>
-                  <p>This is a delicious recipe, made by yours truly</p>
-                </div>
                 <div class = "recipe-cookware">
                   <p><strong>Cookware: </strong></p>
                   <ul>
@@ -80,11 +76,15 @@ export class Home extends React.Component {
                 </div>
                 <div class = "procedure">
                   <p><strong>Steps: </strong></p>
-                  <ul>
+                  <ol>
                     <li>I ain't fillin all this out rn</li>
                     <li>I'm lazy pt2</li>
                     <li>aaaaaaanddddd pt3</li>
-                  </ul>
+                  </ol>
+                </div>
+                <div class = "recipe-notes">
+                  <p><strong>Notes: </strong></p>
+                  <p>This is a delicious recipe, made by yours truly</p>
                 </div>
               </div>
             </div>
