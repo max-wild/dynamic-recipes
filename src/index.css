@@ -55,6 +55,7 @@ a {
 }
 
 .nav-bar {
+  font-family: sans-serif;
 	width: 200px;
 	margin-left: 0px;
   margin-right: 5px;
@@ -86,11 +87,13 @@ a {
 }
 
 .dropdown {
+  font-family: sans-serif;
   position: relative;
   display: inline-block;
 }
 
 .dropdown-content {
+  font-family: sans-serif;
   display: none;
   position: absolute;
   background-color: #828593;
