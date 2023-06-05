@@ -58,23 +58,28 @@ export class Home extends React.Component {
                 <div class = "recipe-image">
                   <img src="pulled_pork.png" alt="Delicious Pulled Pork"></img>
                 </div>
+                <div class = "cook-prep-time">
+                  <p><strong>Cook Time: </strong></p>
+                  <p>8 hours 30 min</p>
+                </div>
                 <div class = "ingredients-list">
+                  <p><strong>Ingredients: </strong></p>
                   <ul>
                     <li>Pork Shoulder</li>
                   </ul>
                 </div>
                 <div class = "recipe-notes">
+                  <p><strong>Notes: </strong></p>
                   <p>This is a delicious recipe, made by yours truly</p>
                 </div>
                 <div class = "recipe-cookware">
+                  <p><strong>Cookware: </strong></p>
                   <ul>
                     <li>Smoker</li>
                   </ul>
                 </div>
-                <div class = "cook-prep-time">
-                  <p>8 hours 30 min</p>
-                </div>
                 <div class = "procedure">
+                  <p><strong>Steps: </strong></p>
                   <ul>
                     <li>I ain't fillin all this out rn</li>
                     <li>I'm lazy pt2</li>
