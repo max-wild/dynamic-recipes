@@ -12,13 +12,19 @@ export class Home extends React.Component {
             <div class = "recipe-bar">
                 <ul>
                   <li>
+                  <a>
                   recipe one
+                  </a>
                   </li>
                   <li>
+                  <a>
                   recipe two
+                  </a>
                   </li>
                   <li>
+                  <a>
                   recipe three
+                  </a>
                   </li>
                 </ul>
             </div>
