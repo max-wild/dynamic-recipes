@@ -10,23 +10,40 @@ export class Home extends React.Component {
               </header>
             </div>
             <div class = "container">
-              <div class = "recipe-bar">
+              <div class = "nav-bar">
                   <ul>
-                    <li>
-                    <a>
-                    recipe one
-                    </a>
-                    </li>
-                    <li>
-                    <a>
-                    recipe two
-                    </a>
-                    </li>
-                    <li>
-                    <a>
-                    recipe three
-                    </a>
-                    </li>
+                    <h2>Where to go</h2>
+
+                    <div class="dropdown">
+                      <span>Folders</span>
+                      <div class="dropdown-content">
+                        <p>Folder 1</p>
+                        <p>Folder 2</p>
+                        <p>Folder 3</p>
+                      </div>
+                    </div>
+
+                    <p>  </p>
+
+                    <div class="dropdown">
+                      <span>Recipe Actions</span>
+                      <div class="dropdown-content">
+                        <p>Add New Recipe</p>
+                        <p>Edit Recipe</p>
+                        <p>Export Recipe</p>
+                      </div>
+                    </div>
+
+                    <p>  </p>
+
+                    <div class="dropdown">
+                      <span>Shopping List</span>
+                      <div class="dropdown-content">
+                        <p>Go to Shopping List</p>
+                        <p>Export Shopping List</p>
+                      </div>
+                    </div>
+
                   </ul>
               </div>
               <div class = "recipes">
