@@ -10,23 +10,35 @@ export class Home extends React.Component {
               </header>
             </div>
             <div class = "recipe-bar">
+              <div class = "recipe-list-header">
+                <h2>
+                  Recipes:
+                </h2>
+              </div>
+              <div class = "recipe-list">
                 <ul>
                   <li>
-                  <a>
-                  recipe one
-                  </a>
+                    <a href = "">
+                    recipe one
+                    </a>
                   </li>
                   <li>
-                  <a>
-                  recipe two
-                  </a>
+                    <a href = "">
+                    recipe two
+                    </a>
                   </li>
                   <li>
-                  <a>
-                  recipe three
-                  </a>
+                    <a href = "">
+                    recipe three
+                    </a>
+                  </li>
+                  <li>
+                    <a href = "">
+                    recipe four
+                    </a>
                   </li>
                 </ul>
+              </div>
             </div>
         </div>)
     }
