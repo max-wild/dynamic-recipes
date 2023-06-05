@@ -9,35 +9,29 @@ export class Home extends React.Component {
                 Recipe Manager
               </header>
             </div>
-            <div class = "recipe-bar">
-              <div class = "recipe-list-header">
-                <h2>
-                  Recipes:
-                </h2>
-              </div>
-              <div class = "recipe-list">
-                <ul>
-                  <li>
-                    <a href = "">
+            <div class = "container">
+              <div class = "recipe-bar">
+                  <ul>
+                    <li>
+                    <a>
                     recipe one
                     </a>
-                  </li>
-                  <li>
-                    <a href = "">
+                    </li>
+                    <li>
+                    <a>
                     recipe two
                     </a>
-                  </li>
-                  <li>
-                    <a href = "">
+                    </li>
+                    <li>
+                    <a>
                     recipe three
                     </a>
-                  </li>
-                  <li>
-                    <a href = "">
-                    recipe four
-                    </a>
-                  </li>
-                </ul>
+                    </li>
+                  </ul>
+              </div>
+              <div class = "recipes">
+                <h1>Example Recipe</h1>
+                <p>This is example text. The box will expand based on # of details</p>
               </div>
             </div>
         </div>)
