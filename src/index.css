@@ -9,6 +9,7 @@ html,body {
 	height: 100%;
 	width: 100%;
   background-color: #EFEFEF;
+  margin: 0;
 }
 
 .container {
@@ -40,6 +41,8 @@ header {
   padding-bottom: 5%;
   padding-top: 5%;
   padding-left: 5%;
+  display: flex;
+  flex-direction: column;
 }
 
 .nav-bar li{
@@ -108,7 +111,8 @@ a {
 }
 
 .dropdown:hover .dropdown-content {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 .recipe-image {
