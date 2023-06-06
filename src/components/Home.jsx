@@ -18,34 +18,34 @@ export const Home = () => {
     getRecipes();
   });
         return (<div>
-            <div class = "head">
+            <div className = "head">
               <header>
                 Recipe Manager
               </header>
             </div>
-            <div class = "container">
-              <div class = "nav-bar">
+            <div className = "container">
+              <div className = "nav-bar">
                   <ul>
                     <h2>Where to go</h2>
 
-                    <div class="dropdown">
+                    <div clasName="dropdown">
                       <span>Folders</span>
-                      <div class="dropdown-content">
+                      <div className="dropdown-content">
                         {dummyFolderData.map((s) => <a>{s}</a>)}
                       </div>
                     </div>
 
-                    <div class="dropdown">
+                    <div className="dropdown">
                       <span>Recipe Actions</span>
-                      <div class="dropdown-content">
+                      <div className="dropdown-content">
                         <p>Create Recipe</p>
                         <p>Import Recipe</p>
                       </div>
                     </div>
 
-                    <div class="dropdown">
+                    <div className="dropdown">
                       <span>Shopping List</span>
-                      <div class="dropdown-content">
+                      <div className="dropdown-content">
                         <p>Go to Shopping List</p>
                         <p>Export Shopping List</p>
                       </div>
