@@ -10,13 +10,13 @@ export const Home = () => {
 
   const getRecipes = async () => {
     fetch("http://localhost:3001/recipes")
-    .then((res) => {console.log(res); return res.json();})
+    .then((res) => res.json())
     .then((res) => setRecipes(res.recipes));
   }
 
   useEffect(() => {
     getRecipes();
-  });
+  }, []);
         return (<div>
             <div className = "head">
               <header>

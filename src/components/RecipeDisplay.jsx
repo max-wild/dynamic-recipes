@@ -14,7 +14,7 @@ export const RecipeDisplay = () => {
 
         useEffect(() => {
           getRecipe();
-        })
+        }, [])
 
         return (
             <div className = "recipes">
@@ -22,41 +22,39 @@ export const RecipeDisplay = () => {
               <div className = "recipe-title">
                 <h1>{recipe.name}</h1>
               </div>
-              <div className = "recipe-category">
-                <h3>BBQ</h3>
-              </div>
+              {recipe.category && <div className = "recipe-category">
+                <h3>{recipe.category}</h3>
+              </div>}
             </div>
-            <div className = "recipe-image">
+            {recipe.image && <div className = "recipe-image">
               <img src={recipe.image} alt={recipe.name}></img>
-            </div>
-            <div className = "cook-prep-time">
+            </div>}
+            {recipe.cooktime && <div className = "cook-prep-time">
               <p><strong>Cook Time: </strong></p>
-              <p>8 hours 30 min</p>
-            </div>
-            <div className = "ingredients-list">
+              <p>{recipe.cooktime}</p>
+            </div>}
+            {recipe.ingredients && <div className = "ingredients-list">
               <p><strong>Ingredients: </strong></p>
               <ul>
-                <li>Pork Shoulder</li>
+                {recipe.ingredients.map((i) => <li>{i}</li>)}
               </ul>
-            </div>
-            <div className = "recipe-cookware">
+            </div>}
+            {recipe.cookware && <div className = "recipe-cookware">
               <p><strong>Cookware: </strong></p>
               <ul>
-                <li>Smoker</li>
+                {recipe.cookware.map((c) => <li>{c}</li>)}
               </ul>
-            </div>
-            <div className = "procedure">
+            </div>}
+            {recipe.steps && <div className = "procedure">
               <p><strong>Steps: </strong></p>
               <ol>
-                <li>I ain't fillin all this out rn</li>
-                <li>I'm lazy pt2</li>
-                <li>aaaaaaanddddd pt3</li>
+                {recipe.steps.map((s) => <li>{s}</li>)}
               </ol>
-            </div>
-            <div className = "recipe-notes">
+            </div>}
+            {recipe.notes && <div className = "recipe-notes">
               <p><strong>Notes: </strong></p>
-              <p>This is a delicious recipe, made by yours truly</p>
-            </div>
+              <p>{recipe.notes}</p>
+            </div>}
           </div>
         )
     }
