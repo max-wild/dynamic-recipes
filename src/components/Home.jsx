@@ -46,7 +46,7 @@ export const Home = () => {
                     <div className="dropdown">
                       <span>Shopping List</span>
                       <div className="dropdown-content">
-                        <p>Go to Shopping List</p>
+                        <a href="/shopping">Go to Shopping List</a>
                         <p>Export Shopping List</p>
                       </div>
                     </div>

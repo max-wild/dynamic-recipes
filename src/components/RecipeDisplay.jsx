@@ -14,7 +14,24 @@ export const RecipeDisplay = () => {
 
         useEffect(() => {
           getRecipe();
-        }, [])
+        }, []);
+
+        const handleClick = async (item) => {
+          console.log("Handling click", item);
+          fetch('http://localhost:3001/shopping')
+          .then(res => res.json())
+          .then(res => {
+            res.list.push(item);
+            const list = res.list;
+            fetch("http://localhost:3001/shopping", {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({list: list})
+            });
+          })
+        }
 
         return (
             <div className = "recipes">
@@ -36,7 +53,7 @@ export const RecipeDisplay = () => {
             {recipe.ingredients && <div className = "ingredients-list">
               <p><strong>Ingredients: </strong></p>
               <ul>
-                {recipe.ingredients.map((i) => <li>{i}</li>)}
+                {recipe.ingredients.map((i) => <li><p>{i}</p><button onClick={() => handleClick(i)}>Add</button></li>)}
               </ul>
             </div>}
             {recipe.cookware && <div className = "recipe-cookware">
