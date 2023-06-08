@@ -33,7 +33,7 @@ export const ShoppingList = () => {
         <div>
             <ul>
             {ingredients.map((i, ind) => {
-                return(<li key={ind}><p>{i}</p><button onClick={() => handleDelete(ind)}>Delete</button></li>)
+                return(<li key={ind}><p>{i}</p><button onClick={() => handleDelete(ind)}><i class="fa-regular fa-trash-can"></i></button></li>)
             })}
             </ul>
         </div>
