@@ -14,7 +14,8 @@ export const ShoppingList = () => {
 
     const handleDelete = (item) => {
         console.log(ingredients[item]);
-        const data = ingredients.splice(item);
+        const data = ingredients;
+        data.splice(item, 1);
         console.log(data);
         fetch("http://localhost:3001/shopping", {
             method: 'POST',
@@ -23,10 +24,8 @@ export const ShoppingList = () => {
             },
             body: JSON.stringify({list: data}),
         })
-        .then((res) => {
-            if (res.ok) {
-                setIngredients(data);
-            }
+        .then(() => {
+            getIngredients();
         })
     }
 

@@ -53,19 +53,19 @@ export const RecipeDisplay = () => {
             {recipe.ingredients && <div className = "ingredients-list">
               <p><strong>Ingredients: </strong></p>
               <ul>
-                {recipe.ingredients.map((i) => <li><p>{i}</p><button onClick={() => handleClick(i)}>Add</button></li>)}
+                {recipe.ingredients.map((i, ind) => <li key={ind}><p>{i}</p><button onClick={() => handleClick(i)}>Add</button></li>)}
               </ul>
             </div>}
             {recipe.cookware && <div className = "recipe-cookware">
               <p><strong>Cookware: </strong></p>
               <ul>
-                {recipe.cookware.map((c) => <li>{c}</li>)}
+                {recipe.cookware.map((c, ind) => <li key={ind}>{c}</li>)}
               </ul>
             </div>}
             {recipe.steps && <div className = "procedure">
               <p><strong>Steps: </strong></p>
               <ol>
-                {recipe.steps.map((s) => <li>{s}</li>)}
+                {recipe.steps.map((s, ind) => <li key={ind}>{s}</li>)}
               </ol>
             </div>}
             {recipe.notes && <div className = "recipe-notes">
