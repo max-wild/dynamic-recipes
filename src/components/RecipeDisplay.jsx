@@ -33,6 +33,15 @@ export const RecipeDisplay = () => {
           })
         }
 
+        const downloadRecipe = () => {
+          const blob = new Blob ([JSON.stringify(recipe)], {type: "application/json"});
+          const blobURL = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = blobURL;
+          link.download = `${recipe.name}.json`;
+          link.click();
+        }
+
         return (
             <div className = "recipes">
             <div className = "recipe-header">
@@ -46,6 +55,9 @@ export const RecipeDisplay = () => {
             {recipe.image && <div className = "recipe-image">
               <img src={recipe.image} alt={recipe.name}></img>
             </div>}
+            <div>
+              <button onClick={downloadRecipe}>Download</button>
+            </div>
             {recipe.cooktime && <div className = "cook-prep-time">
               <p><strong>Cook Time: </strong></p>
               <p>{recipe.cooktime}</p>
