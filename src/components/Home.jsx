@@ -26,7 +26,7 @@ export const Home = () => {
             <div class = "container">
               <div class = "nav-bar">
                   <ul>
-                    <h2>Where to go</h2>
+                    <h2>Menu</h2>
 
                     <div class="dropdown">
                       <span>Folders</span>
