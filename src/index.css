@@ -63,8 +63,8 @@ a {
 }
 
 .recipes {
-  margin-top: 15px;
-  margin-left: 15px;
+  margin-top: 0px;
+  margin-left: 0px;
   margin-right: 15px;
   height: 100%;
   width: 100%;
@@ -163,4 +163,37 @@ a {
 
 .shopping-list{
   text-align: left;
+}
+
+.shopping-list header {
+  margin-left: 110px;
+}
+
+.home-button:hover {
+  cursor: pointer;
+}
+
+#home-icon {
+  position: absolute;
+  margin-left: 0px;
+  margin-top: 0px;
+  height: 105px;
+  width: 120px;
+  color: white;
+  background-color: #2A324B;
+  border: none;
+}
+
+.recipe-header{
+  text-align: left;
+  margin-top: 0px;
+}
+
+.recipe-header header{
+  margin-left: 110px;
+  margin-top: -5px;
+}
+
+.recipe-title {
+  margin-left: 0px;
 }

@@ -32,6 +32,7 @@ export const ShoppingList = () => {
     return (
         <div className="shopping-list">
             <div className="shopping-list-header">
+                <button class="home-button" id="home-icon"><i class="fa-solid fa-house fa-2xl"></i></button>
                 <header>Shopping List: </header>
             </div>
             <ul>
