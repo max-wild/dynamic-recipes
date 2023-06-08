@@ -10,43 +10,43 @@ export const Home = () => {
 
   const getRecipes = async () => {
     fetch("http://localhost:3001/recipes")
-    .then((res) => {console.log(res); return res.json();})
+    .then((res) => res.json())
     .then((res) => setRecipes(res.recipes));
   }
 
   useEffect(() => {
     getRecipes();
-  });
+  }, []);
         return (<div>
-            <div class = "head">
+            <div className = "head">
               <header>
                 Recipe Manager
               </header>
             </div>
-            <div class = "container">
-              <div class = "nav-bar">
+            <div className = "container">
+              <div className = "nav-bar">
                   <ul>
                     <h2>Menu</h2>
 
-                    <div class="dropdown">
+                    <div clasName="dropdown">
                       <span>Folders</span>
-                      <div class="dropdown-content">
+                      <div className="dropdown-content">
                         {dummyFolderData.map((s) => <a>{s}</a>)}
                       </div>
                     </div>
 
-                    <div class="dropdown">
+                    <div className="dropdown">
                       <span>Recipe Actions</span>
-                      <div class="dropdown-content">
+                      <div className="dropdown-content">
                         <p>Create Recipe</p>
                         <p>Import Recipe</p>
                       </div>
                     </div>
 
-                    <div class="dropdown">
+                    <div className="dropdown">
                       <span>Shopping List</span>
-                      <div class="dropdown-content">
-                        <p>Go to Shopping List</p>
+                      <div className="dropdown-content">
+                        <a href="/shopping">Go to Shopping List</a>
                         <p>Export Shopping List</p>
                       </div>
                     </div>
