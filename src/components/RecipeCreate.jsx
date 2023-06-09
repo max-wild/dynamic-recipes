@@ -1,7 +1,50 @@
-
-
+import { useState } from "react";
 
 export const RecipeCreate = () => {
+
+    const [ingredients, setIngredients] = useState([]);
+    const [cookware, setCookware] = useState([]);
+    const [steps, setSteps] = useState([]);
+
+    const handleDeleteIngredient = (ind) => {
+        const data = JSON.parse(JSON.stringify(ingredients));
+        data.splice(ind, 1);
+        setIngredients(data);
+    }
+
+    const handleDeleteCookware = (ind) => {
+        const data = JSON.parse(JSON.stringify(cookware));
+        data.splice(ind, 1);
+        setCookware(data);
+    }
+
+    const handleDeleteStep = (ind) => {
+        const data = JSON.parse(JSON.stringify(steps));
+        data.splice(ind, 1);
+        setSteps(data);
+    }
+
+    const handleAddIngredient = () => {
+        const data = JSON.parse(JSON.stringify(ingredients));
+        data.push(document.getElementById("ingredients-input").value);
+        document.getElementById("ingredients-input").value = "";
+        setIngredients(data);
+    }
+
+    const handleAddCookware = () => {
+        const data = JSON.parse(JSON.stringify(cookware));
+        data.push(document.getElementById("cookware-input").value);
+        document.getElementById("cookware-input").value = "";
+        setCookware(data);
+    }
+
+    const handleAddStep = () => {
+        const data = JSON.parse(JSON.stringify(steps));
+        data.push(document.getElementById("cookware-input").value);
+        document.getElementById("cookware-input").value = "";
+        setCookware(data);
+    }
+
 
     var sendingRequests = false;  // Global variable used to stop multiple post requests to the server
 
@@ -31,10 +74,25 @@ export const RecipeCreate = () => {
      */
     const getFormData = () => {
 
-        return {
-            "temp": "button",
-            "name": "rofl"
+        var formData = {
+            "name": document.getElementById("name-input").value,
+            "image": document.getElementById("image-input").value,
+            "category": document.getElementById("category-input").value,
+            "cooktime": document.getElementById("cooktime-input").value,
+            "notes": document.getElementById("notes-input").value
+        };
+
+        if(ingredients.length){
+            formData["ingredients"] = ingredients;
         }
+        if(cookware.length){
+            formData["cookware"] = cookware;
+        }
+        if(steps.length){
+            formData["steps"] = steps;
+        }
+
+        return formData;
     }
 
     const attemptCreateRecipe = async () => {
@@ -82,15 +140,67 @@ export const RecipeCreate = () => {
     }
 
     return (
-        <div /*className="shopping-list"*/>
+        <div>
             <div className="shopping-list-header">
                 <header>Create a Recipe:</header>
             </div>
-            <ul>
-                {/* {ingredients.map((i, ind) => {
-                    return(<li key={ind}><p>{i}</p><button onClick={() => handleDelete(ind)}><i class="fa-regular fa-trash-can"></i></button></li>)
-                })} */}
-            </ul>
-            <button onClick={() => attemptCreateRecipe()}>recipe rofl</button>
-        </div>)
+            
+            <div><p>Name: </p><input id="name-input" /></div>
+            <div><p>Image: </p><input id="image-input" /></div>
+            <div><p>Category: </p><input id="category-input" /></div>
+            <div><p>Cooktime: </p><input id="cooktime-input" /></div>
+            
+            <div>
+                <p>Ingredients</p>
+                <ul>
+                    {ingredients.map((i, ind) => {
+                        return (
+                            <li key={ind}>
+                            <p>{i}</p><button onClick={() => handleDeleteIngredient(ind)}><i className="fa-regular fa-trash-can"></i></button>
+                            </li>
+                        )
+                    })}
+                </ul>
+                <div>
+                    <p>Add: </p><input id="ingredients-input"/><button onClick={handleAddIngredient}>Add</button>
+                </div>
+            </div>
+            
+            <div>
+                <p>Cookware</p>
+                <ul>
+                    {cookware.map((i, ind) => {
+                        return (
+                            <li key={ind}>
+                            <p>{i}</p><button onClick={() => handleDeleteCookware(ind)}><i className="fa-regular fa-trash-can"></i></button>
+                            </li>
+                        )
+                    })}
+                </ul>
+                <div>
+                    <p>Add: </p><input id="cookware-input"/><button onClick={handleAddCookware}>Add</button>
+                </div>
+            </div>
+            
+            <div>
+                <p>Steps</p>
+                <ol>
+                    {steps.map((i, ind) => {
+                        return (
+                            <li key={ind}>
+                            <p>{i}</p><button onClick={() => handleDeleteStep(ind)}><i className="fa-regular fa-trash-can"></i></button>
+                            </li>
+                        )
+                    })}
+                </ol>
+                <div>
+                    <p>Add: </p><input id="steps-input"/><button onClick={handleAddStep}>Add</button>
+                </div>
+            </div>
+            
+            <div><p>Notes: </p><input id="notes-input" /></div>
+            
+            <button onClick={() => attemptCreateRecipe()}>Create</button>
+        </div>
+    )
 }

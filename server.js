@@ -52,7 +52,7 @@ app.post("/recipe", (request, response) => {
         return response.status(400).send({"error": "No recipe name specified."});
     }
 
-    var filepath = path.join("serverFiles", "recipes", `${request.body.name}.json`);
+    var filepath = path.join("serverFiles", "recipes", `${request.body.name.replace(/ /g, '_')}.json`);
     if(fs.existsSync(filepath)){
         // Stops from overwriting a pre-existing file
         return response.status(400).send({"error": "Recipe name already taken."});
