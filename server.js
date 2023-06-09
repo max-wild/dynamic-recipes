@@ -73,17 +73,20 @@ app.post("/recipe", (request, response) => {
 });
 
 // Communicates if a recipe name is already taken
-// Body must have {"name": recipeName}
+// Url must have the query "name"
 app.get("/recipe-exists", (request, response) => {
 
     if(!request.query.name){
         return response.status(400).send({"error": "No recipe name specified."});
     }
 
-    var fileExists = false;
-    var filepath = path.join("serverFiles", "recipes", `${request.query.name}.json`);
-    if(fs.existsSync(filepath)){
-        fileExists = true;
+    var fileExists;
+    const filepath = path.join("serverFiles", "recipes", `${request.query.name}.json`);
+    
+    try{
+        fileExists = fs.existsSync(filepath);
+    }catch (err){
+        return response.status(500).send({"error": err});
     }
 
     return response.status(200).send({"exists": fileExists});
