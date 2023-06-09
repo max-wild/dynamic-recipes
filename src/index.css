@@ -22,20 +22,21 @@ code {
 }
 
 header {
-	font-family: cursive;
+	font-family: sans-serif;
+  font-weight: bold;
 	font-size: 50px;
 	background-color: #2A324B;
-	color: white;
+	color: #EFEFEF;
 	height: 85px;
   text-align: left;
   padding-left: 40px;
-	padding-top: 10px;
-  padding-bottom: 10px;
+	padding-top: 20px;
 	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
 }
 
 .nav-bar ul{
   background-color: #767B91;
+  border-radius: 10px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
   height: 100vh;
   padding-bottom: 5%;
@@ -45,10 +46,11 @@ header {
   flex-direction: column;
 }
 
-.nav-bar li{
-  height: 25px;
+.nav-bar h2{
   font-family: sans-serif;
-  color: #ACACC3;
+  font-weight: bold;
+  color: #373943;
+  text-align: center;
 }
 
 a {
@@ -93,8 +95,11 @@ a {
 
 .dropdown {
   font-family: sans-serif;
+  font-weight: bold;
+  color: #373943;
   position: relative;
   display: inline-block;
+  padding-top: 20px;
 }
 
 .dropdown-content {
@@ -104,12 +109,17 @@ a {
   background-color: #828593;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 14px 10px;
+  padding: 14px, 10px;
   z-index: 1;
 }
 
 .dropdown:hover .dropdown-content {
+  border-radius: 10px;
   display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   flex-direction: column;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
@@ -157,5 +167,4 @@ a {
 .recipe-list {
   margin-left: 15px;
   margin-top: 15px;
-
 }
