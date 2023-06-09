@@ -201,3 +201,23 @@ a {
 .recipe-title {
   margin-left: 0px;
 }
+
+.shopping-list-items p,
+.shopping-list-items button {
+    margin-left: 10px;
+    margin-bottom: 8px;
+    display: inline;
+    font-size: 20px;
+}
+
+.shopping-list-item-x{
+  border: none;
+  color: #2A324B;
+}
+
+.shopping-list-item-x:hover {
+  margin-left: 5px;
+  cursor: pointer;
+  border: 1px solid #2A324B;
+  border-radius: 3px;
+}

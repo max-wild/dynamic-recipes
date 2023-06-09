@@ -33,14 +33,24 @@ export const ShoppingList = () => {
     return (
         <div className="shopping-list">
             <div className="shopping-list-header">
-                <a href="http://localhost:3000/"><button className="home-button" id="home-icon"><i className="fa-solid fa-house fa-2xl"></i></button></a>
-                <header>Shopping List: </header> 
+                <a href="http://localhost:3000/"><button className="home-button" id="home-icon">
+                    <i className="fa-solid fa-house fa-2xl"></i></button></a>
+                <header>Shopping List </header> 
             </div>
+            <div className="shopping-list-items">
             <ul>
             {ingredients.map((i, ind) => {
-                return(<li key={ind}><p>{i}</p><button onClick={() => handleDelete(ind)}><i class="fa-regular fa-trash-can"></i></button></li>)
+                return (
+                    <li key={ind} >
+                        <p>{i}</p>
+                        <button className="shopping-list-item-x" onClick={() => handleDelete(ind)}>
+                        <i class="fa-regular fa-trash-can fa-sm"></i>
+                        </button>
+                    </li>
+                );
             })}
             </ul>
+            </div>
         </div>
     );
 }
