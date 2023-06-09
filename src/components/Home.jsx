@@ -60,7 +60,7 @@ export const Home = () => {
                       <span>Shopping List</span>
                       <div className="dropdown-content">
                         <a href="/shopping">Go to Shopping List</a>
-                        <button onClick={downloadList}>Export Shopping List</button>
+                        <button className="export-button" onClick={downloadList}>Export Shopping List</button>
                       </div>
                     </div>
 
