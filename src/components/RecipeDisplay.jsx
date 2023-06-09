@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 export const RecipeDisplay = () => {
         const {id} = useParams();
@@ -36,7 +37,7 @@ export const RecipeDisplay = () => {
         return (
             <div className = "recipes">
             <div className = "recipe-header">
-              <button class="home-button" id="home-icon"><i class="fa-solid fa-house fa-2xl"></i></button>
+              <a href="http://localhost:3000/"><button className="home-button" id="home-icon"><i className="fa-solid fa-house fa-2xl"></i></button></a>
               <div className = "recipe-title">
                 <header>{recipe.name}</header>
               </div>

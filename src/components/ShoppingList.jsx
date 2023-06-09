@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
 
 export const ShoppingList = () => {
     const [ingredients, setIngredients] = useState([]);
@@ -32,8 +33,8 @@ export const ShoppingList = () => {
     return (
         <div className="shopping-list">
             <div className="shopping-list-header">
-                <button class="home-button" id="home-icon"><i class="fa-solid fa-house fa-2xl"></i></button>
-                <header>Shopping List: </header>
+                <a href="http://localhost:3000/"><button className="home-button" id="home-icon"><i className="fa-solid fa-house fa-2xl"></i></button></a>
+                <header>Shopping List: </header> 
             </div>
             <ul>
             {ingredients.map((i, ind) => {

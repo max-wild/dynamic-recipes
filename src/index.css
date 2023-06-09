@@ -169,6 +169,10 @@ a {
   margin-left: 110px;
 }
 
+.shopping-list a{
+  text-decoration: none;
+}
+
 .home-button:hover {
   cursor: pointer;
 }
