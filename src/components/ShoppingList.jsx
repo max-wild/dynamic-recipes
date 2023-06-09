@@ -30,7 +30,11 @@ export const ShoppingList = () => {
     }
 
     return (
-        <div>
+        <div className="shopping-list">
+            <div className="shopping-list-header">
+                <button class="home-button" id="home-icon"><i class="fa-solid fa-house fa-2xl"></i></button>
+                <header>Shopping List: </header>
+            </div>
             <ul>
             {ingredients.map((i, ind) => {
                 return(<li key={ind}><p>{i}</p><button onClick={() => handleDelete(ind)}><i class="fa-regular fa-trash-can"></i></button></li>)
