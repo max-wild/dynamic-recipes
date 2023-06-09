@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const RecipeEdit = () => {
+    const navigate = useNavigate();
+
     const {id} = useParams();
     const [recipe, setRecipe] = useState({});
     const [name, setName] = useState("");
@@ -13,11 +16,15 @@ export const RecipeEdit = () => {
     const [cookware, setCookware] = useState([]);
     const [steps, setSteps] = useState([]);
     const [notes, setNotes] = useState("");
-
     
     const getRecipe = async () => {
       fetch(`http://localhost:3001/recipe/${id.replace(/ /g, '_')}`)
-      .then(res => res.json())
+      .then(res => {
+        if(!res.ok){
+          navigate("/page-not-found");
+        }
+        return res.json();
+      })
       .then(res => {
         setRecipe(res);
         setName(res.name ? res.name : "");

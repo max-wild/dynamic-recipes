@@ -5,6 +5,7 @@ import { RecipeCreate } from './components/RecipeCreate';
 import { RecipeDisplay } from './components/RecipeDisplay';
 import { RecipeEdit } from './components/RecipeEdit';
 import { ShoppingList } from './components/ShoppingList';
+import { PageNotFound } from './components/PageNotFound';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/recipe/:id" element={<RecipeDisplay />} />
         <Route path="/edit/:id" element={<RecipeEdit />} />
         <Route path="/shopping" element={<ShoppingList />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   );

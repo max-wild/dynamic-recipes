@@ -30,7 +30,13 @@ app.get("/recipes", (request, response) => {
 });
 
 app.get("/recipe/:id", (request, response) => {
-    fs.readFile(`./serverFiles/recipes/${request.params.id}.json`, "utf-8", (err, data) => {
+    const filepath = `./serverFiles/recipes/${request.params.id}.json`;
+    if(!fs.existsSync(filepath)){
+        response.status(400).send({error: "Recipe doesn't exist."});
+        return;
+    }
+
+    fs.readFile(filepath, "utf-8", (err, data) => {
         if (err) {
             console.error(err);
             response.sendStatus(400);
@@ -80,14 +86,8 @@ app.get("/recipe-exists", (request, response) => {
         return response.status(400).send({"error": "No recipe name specified."});
     }
 
-    var fileExists;
     const filepath = path.join("serverFiles", "recipes", `${request.query.name}.json`);
-    
-    try{
-        fileExists = fs.existsSync(filepath);
-    }catch (err){
-        return response.status(500).send({"error": err});
-    }
+    const fileExists = fs.existsSync(filepath);
 
     return response.status(200).send({"exists": fileExists});
 })

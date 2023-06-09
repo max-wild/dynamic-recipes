@@ -106,7 +106,12 @@ export const RecipeCreate = () => {
         const formData = getFormData();
         const recipeName = formData.name;
 
-        // Check if the recipe name already exists
+        // Check if the recipe name is unspecified or already taken
+        if(!recipeName){
+            alert('Please specify a recipe name.');
+            sendingRequests = false;
+            return;
+        }
         try{
             if(await recipeExists(recipeName)){
                 alert('This recipe name is already taken. Please use another.');
@@ -145,6 +150,8 @@ export const RecipeCreate = () => {
                 <header>Create a Recipe:</header>
             </div>
             
+            <p>warning cookware is temporarily kind of buggy since it's tyler's old code copy-pasted</p>
+
             <div><p>Name: </p><input id="name-input" /></div>
             <div><p>Image: </p><input id="image-input" /></div>
             <div><p>Category: </p><input id="category-input" /></div>
