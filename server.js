@@ -76,6 +76,19 @@ app.post("/recipe", (request, response) => {
     });
 });
 
+app.put("/recipe/:id", (request, response) => {
+    fs.writeFile(`./serverFiles/recipes/${request.params.id}`, err => {
+        if (err) {
+            console.error(err);
+            response.sendStatus(400);
+            return;
+        }
+        response.status(200);
+        response.type('text/plain');
+        response.send("Success");
+    })
+});
+
 
 /**
  * Shopping HTTP Requests
