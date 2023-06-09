@@ -58,6 +58,7 @@ a {
 .nav-bar {
   font-family: sans-serif;
 	width: 200px;
+  min-width: 200px;
 	margin-left: 0px;
 	text-align: left;
 }
@@ -95,6 +96,7 @@ a {
   font-family: sans-serif;
   position: relative;
   display: inline-block;
+  margin-bottom: 10px;
 }
 
 .dropdown-content {
@@ -106,7 +108,7 @@ a {
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 14px 10px;
   z-index: 1;
-  /* text-underline-position: under; */
+  margin-left: 10px;
 }
 
 .dropdown:hover .dropdown-content {
@@ -208,6 +210,7 @@ a {
     margin-bottom: 8px;
     display: inline;
     font-size: 20px;
+    font-family: sans-serif;
 }
 
 .shopping-list-item-x{
@@ -220,4 +223,16 @@ a {
   cursor: pointer;
   border: 1px solid #2A324B;
   border-radius: 3px;
+}
+
+.export-button {
+  background: none;
+  border: none;
+  padding: 0px;
+  margin-left: -10px;
+  font-family: sans-serif;
+  font-size: 16px;
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
 }
