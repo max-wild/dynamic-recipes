@@ -51,7 +51,7 @@ export const Home = () => {
                     <div className="dropdown">
                       <span>Recipe Actions</span>
                       <div className="dropdown-content">
-                        <a>Create Recipe</a>
+                        <a href="/create">Create Recipe</a>
                         <a>Import Recipe</a>
                       </div>
                     </div>
@@ -60,7 +60,7 @@ export const Home = () => {
                       <span>Shopping List</span>
                       <div className="dropdown-content">
                         <a href="/shopping">Go to Shopping List</a>
-                        <button onClick={downloadList}>Export Shopping List</button>
+                        <button className="export-button" onClick={downloadList}>Export Shopping List</button>
                       </div>
                     </div>
 

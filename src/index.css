@@ -60,6 +60,7 @@ a {
 .nav-bar {
   font-family: sans-serif;
 	width: 200px;
+  min-width: 200px;
 	margin-left: 0px;
 	text-align: left;
 }
@@ -99,7 +100,7 @@ a {
   color: #373943;
   position: relative;
   display: inline-block;
-  padding-top: 20px;
+  margin-bottom: 10px;
 }
 
 .dropdown-content {
@@ -111,7 +112,7 @@ a {
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 14px, 10px;
   z-index: 1;
-  /* text-underline-position: under; */
+  margin-left: 10px;
 }
 
 .dropdown:hover .dropdown-content {
@@ -179,6 +180,10 @@ a {
   margin-left: 110px;
 }
 
+.shopping-list a{
+  text-decoration: none;
+}
+
 .home-button:hover {
   cursor: pointer;
 }
@@ -206,4 +211,100 @@ a {
 
 .recipe-title {
   margin-left: 0px;
+}
+
+.shopping-list-items p {
+  margin-left: 10px;
+  margin-bottom: 8px;
+  display: inline-flex;
+  font-size: 20px;
+  font-family: sans-serif;
+  margin-top: 10px;
+}
+
+.shopping-list-items:hover p {
+  cursor: default;
+}
+
+.shopping-list-items button {
+    margin-left: 10px;
+    margin-bottom: 8px;
+    display: inline-block;
+    font-size: 20px;
+    font-family: sans-serif;
+    margin-top: 5px;
+}
+
+.shopping-list-item-x{
+  border: none;
+  color: #2A324B;
+}
+
+.shopping-list-item-x:hover {
+  margin-left: 5px;
+  cursor: pointer;
+  border: .5px solid #2A324B;
+  border-radius: 3px;
+}
+
+.export-button {
+  background: none;
+  border: none;
+  padding: 0px;
+  margin-left: -10px;
+  font-family: sans-serif;
+  font-size: 16px;
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.shopping-cart-title {
+  position: relative;
+  display: inline-block;
+  margin-top: 30px;
+  margin-left: 15px;
+  height: 43px;
+}
+
+.shopping-cart-title:hover {
+  position: relative;
+  display: inline-block;
+  margin-top: 30px;
+  margin-left: 15px;
+  height: 43px;
+}
+
+.shopping-cart-title h2 {
+  position: relative;
+  margin-left: 60px;
+  margin-top: -33px;
+  font-size: 40px;
+  height: 40px;
+}
+
+.shopping-cart-title:hover h2 {
+  position: fixed;
+  margin-left: 60px;
+  margin-top: -15px;
+  font-size: 43px;
+  height: 40px;
+  cursor: default;
+}
+
+.shopping-cart-title .hover-icon i {
+  visibility: hidden;
+}
+
+.shopping-cart-title:hover .hover-icon i {
+  visibility: visible;
+  cursor: default;
+  position: absolute;
+  top: 28px;
+  left: 5px;
+  height: 43px;
+}
+
+.shopping-cart-title:hover i {
+  visibility: hidden;
 }

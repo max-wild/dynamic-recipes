@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
 
 export const ShoppingList = () => {
     const [ingredients, setIngredients] = useState([]);
@@ -32,14 +33,31 @@ export const ShoppingList = () => {
     return (
         <div className="shopping-list">
             <div className="shopping-list-header">
-                <button class="home-button" id="home-icon"><i class="fa-solid fa-house fa-2xl"></i></button>
-                <header>Shopping List: </header>
+                <a href="http://localhost:3000/"><button className="home-button" id="home-icon">
+                    <i className="fa-solid fa-house fa-2xl"></i></button></a>
+                <header>Shopping List </header> 
             </div>
+            <div className="shopping-cart-title">
+            <div className="hover-icon">
+                <i className="fa-solid fa-cart-shopping fa-flip fa-2xl"></i>
+            </div>
+                <i className="fa-solid fa-cart-shopping fa-2xl"></i>
+                <h2>Your shopping cart:</h2>
+            </div>
+            <div className="shopping-list-items">
             <ul>
             {ingredients.map((i, ind) => {
-                return(<li key={ind}><p>{i}</p><button onClick={() => handleDelete(ind)}><i class="fa-regular fa-trash-can"></i></button></li>)
+                return (
+                    <li key={ind} >
+                        <p>{i}</p>
+                        <button className="shopping-list-item-x" onClick={() => handleDelete(ind)}>
+                        <i className="fa-regular fa-trash-can fa-sm"></i>
+                        </button>
+                    </li>
+                );
             })}
             </ul>
+            </div>
         </div>
     );
 }
