@@ -50,7 +50,7 @@ export const ShoppingList = () => {
                 return (
                     <li key={ind} >
                         <p>{i}</p>
-                        <button className="shopping-list-item-x" onClick={() => handleDelete(ind)}>
+                        <button className="trash-item" onClick={() => handleDelete(ind)}>
                         <i className="fa-regular fa-trash-can fa-sm"></i>
                         </button>
                     </li>

@@ -153,7 +153,6 @@ export const RecipeCreate = () => {
             </div>
             
             <div className="create-content">
-            <p>warning cookware is temporarily kind of buggy since it's tyler's old code copy-pasted</p>
             <div>
             <div><p>Name: </p><input id="name-input" /></div>
             <div><p>Image: </p><input id="image-input" /></div>
@@ -209,7 +208,7 @@ export const RecipeCreate = () => {
             
             <div><p>Notes: </p><input id="notes-input" /></div>
             
-            <button onClick={() => attemptCreateRecipe()}>Create</button>
+            <button className="create-button" onClick={() => attemptCreateRecipe()}>Create</button>
             </div>
         </div>
     )

@@ -239,12 +239,12 @@ a {
     margin-top: 5px;
 }
 
-.shopping-list-item-x{
+.trash-item{
   border: none;
   color: #2A324B;
 }
 
-.shopping-list-item-x:hover {
+.trash-item:hover {
   margin-left: 5px;
   cursor: pointer;
   border: .5px solid #2A324B;
@@ -325,6 +325,11 @@ a {
   margin-left: 30px;
 }
 
+.create-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .ingredients-list li {
   display: flex;
   align-items: center;
@@ -374,6 +379,13 @@ a {
   color: #2A324B;
 }
 
+.action-buttons a:hover {
+  font-size: 1.25rem;
+}
+.action-buttons button:hover {
+  font-size: 1.15rem;
+}
+
 .recipe-category h2, 
 .recipe-category h3 {
   margin-left: 25px;
@@ -387,4 +399,26 @@ a {
 .procedure ol{
   margin-bottom: 5px;
   margin-top: 5px;
+}
+
+.edit-header{
+  text-align: left;
+  margin-top: 0px;
+}
+
+.edit-header header{
+  margin-left: 110px;
+  margin-top: -5px;
+}
+
+.save-button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.create-content ul {
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  text-align: left;
 }

@@ -120,7 +120,13 @@ export const RecipeEdit = () => {
     }
 
     return isPut ? <Navigate to={`/recipe/${name}`} /> : (
-        <div>
+        <div className="create-a-recipe">
+            <div className="edit-header">
+                <a href="http://localhost:3000/"><button className="home-button" id="home-icon">
+                <i className="fa-solid fa-house fa-2xl"></i></button></a>
+                <header>Edit Your Recipe:</header>
+            </div>
+            <div className="create-content">
             <div><p>Name: </p><input id="name-input" defaultValue={name} /></div>
             <div><p>Image: </p><input id="image-input" defaultValue={image} /></div>
             <div><p>Category: </p><input id="category-input" defaultValue={category} /></div>
@@ -131,7 +137,7 @@ export const RecipeEdit = () => {
                 {ingredients.map((i, ind) => {
                   return (
                     <li key={ind}>
-                      <p>{i}</p><button onClick={() => handleDeleteIngredient(ind)}><i className="fa-regular fa-trash-can"></i></button>
+                      <p>{i}</p><button className="trash-item" onClick={() => handleDeleteIngredient(ind)}><i className="fa-regular fa-trash-can"></i></button>
                     </li>
                   )
                 })}
@@ -146,7 +152,7 @@ export const RecipeEdit = () => {
                 {cookware.map((i, ind) => {
                   return (
                     <li key={ind}>
-                      <p>{i}</p><button onClick={() => handleDeleteCookware(ind)}><i className="fa-regular fa-trash-can"></i></button>
+                      <p>{i}</p><button className="trash-item" onClick={() => handleDeleteCookware(ind)}><i className="fa-regular fa-trash-can"></i></button>
                     </li>
                   )
                 })}
@@ -161,17 +167,18 @@ export const RecipeEdit = () => {
                 {steps.map((i, ind) => {
                   return (
                     <li key={ind}>
-                      <p>{i}</p><button onClick={() => handleDeleteStep(ind)}><i className="fa-regular fa-trash-can"></i></button>
+                      <p>{i}</p><button className="trash-item" onClick={() => handleDeleteStep(ind)}><i className="fa-regular fa-trash-can"></i></button>
                     </li>
                   )
                 })}
               </ol>
               <div>
                 <p>Add: </p><input id="steps-input"/><button onClick={handleAddStep}>Add</button>
-              </div>
+            </div>
             </div>
             <div><p>Notes: </p><input id="notes-input" defaultValue={notes} /></div>
-            <button onClick={handleSave}>Save</button>
+            <button class="save-button" onClick={handleSave}>Save</button>
+            </div>
         </div>
     );
 }
