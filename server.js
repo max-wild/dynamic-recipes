@@ -64,7 +64,7 @@ app.post("/recipe", (request, response) => {
         return response.status(400).send({"error": "Recipe name already taken."});
     }
 
-    fs.writeFile(filepath, JSON.stringify(request.body, null, "\t"), err => {
+    fs.writeFile(filepath, JSON.stringify(request.body), err => {
         if (err) {
             console.error(err);
             response.sendStatus(400);
@@ -104,6 +104,17 @@ app.put("/recipe/:id", (request, response) => {
         response.send("Success");
     })
 });
+
+app.delete("/recipe/:id", (request, response) => {
+    fs.unlink(`./serverFiles/recipes/${request.params.id}.json`, err => {
+        if (err) {
+            console.log(err);
+        }
+        response.status(200);
+        response.type('text/plain');
+        response.send("Success");
+    })
+})
 
 
 /**
