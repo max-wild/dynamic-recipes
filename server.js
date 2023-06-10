@@ -93,7 +93,7 @@ app.get("/recipe-exists", (request, response) => {
 })
 
 app.put("/recipe/:id", (request, response) => {
-    fs.writeFile(`./serverFiles/recipes/${request.params.id}`, err => {
+    fs.writeFile(`./serverFiles/recipes/${request.params.id}.json`, JSON.stringify(request.body), err => {
         if (err) {
             console.error(err);
             response.sendStatus(400);

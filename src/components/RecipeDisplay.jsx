@@ -41,6 +41,16 @@ export const RecipeDisplay = () => {
           })
         }
 
+        const handleExport = () => {
+          console.log(recipe);
+          const blob = new Blob ([JSON.stringify(recipe)], {type: "text/plain"});
+          const blobURL = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = blobURL;
+          link.download = `${recipe.name.replace(/ /g, "_")}.json`;
+          link.click();
+        }
+
         return (
             <div className = "recipes">
             <div className = "recipe-header">
@@ -55,6 +65,8 @@ export const RecipeDisplay = () => {
             {recipe.image && <div className = "recipe-image">
               <img src={recipe.image} alt={recipe.name}></img>
             </div>}
+            <a href={`/edit/${recipe.name}`}>Edit</a>
+            <button onClick={handleExport}>Export</button>
             {recipe.cooktime && <div className = "cook-prep-time">
               <p><strong>Cook Time: </strong></p>
               <p>{recipe.cooktime}</p>
@@ -62,19 +74,19 @@ export const RecipeDisplay = () => {
             {recipe.ingredients && <div className = "ingredients-list">
               <p><strong>Ingredients: </strong></p>
               <ul>
-                {recipe.ingredients.map((i) => <li><p>{i}</p><button onClick={() => handleClick(i)}>Add</button></li>)}
+                {recipe.ingredients.map((i, ind) => <li key={ind}><p>{i}</p><button onClick={() => handleClick(i)}>Add</button></li>)}
               </ul>
             </div>}
             {recipe.cookware && <div className = "recipe-cookware">
               <p><strong>Cookware: </strong></p>
               <ul>
-                {recipe.cookware.map((c) => <li>{c}</li>)}
+                {recipe.cookware.map((c, ind) => <li key={ind}>{c}</li>)}
               </ul>
             </div>}
             {recipe.steps && <div className = "procedure">
               <p><strong>Steps: </strong></p>
               <ol>
-                {recipe.steps.map((s) => <li>{s}</li>)}
+                {recipe.steps.map((s, ind) => <li key={ind}>{s}</li>)}
               </ol>
             </div>}
             {recipe.notes && <div className = "recipe-notes">

@@ -52,7 +52,7 @@ export const Home = () => {
                       <span>Recipe Actions</span>
                       <div className="dropdown-content">
                         <a href="/create">Create Recipe</a>
-                        <a>Import Recipe</a>
+                        <a href="/upload">Import Recipe</a>
                       </div>
                     </div>
 

@@ -40,9 +40,9 @@ export const RecipeCreate = () => {
 
     const handleAddStep = () => {
         const data = JSON.parse(JSON.stringify(steps));
-        data.push(document.getElementById("cookware-input").value);
-        document.getElementById("cookware-input").value = "";
-        setCookware(data);
+        data.push(document.getElementById("steps-input").value);
+        document.getElementById("steps-input").value = "";
+        setSteps(data);
     }
 
 

@@ -6,6 +6,7 @@ import { RecipeDisplay } from './components/RecipeDisplay';
 import { RecipeEdit } from './components/RecipeEdit';
 import { ShoppingList } from './components/ShoppingList';
 import { PageNotFound } from './components/PageNotFound';
+import { RecipeUpload } from './components/RecipeUpload';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/recipe/:id" element={<RecipeDisplay />} />
         <Route path="/edit/:id" element={<RecipeEdit />} />
         <Route path="/shopping" element={<ShoppingList />} />
+        <Route path="/upload" element={<RecipeUpload />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 export const RecipeEdit = () => {
     const navigate = useNavigate();
+
+    const [isPut, setIsPut] = useState(false);
 
     const {id} = useParams();
     const [recipe, setRecipe] = useState({});
@@ -38,7 +40,6 @@ export const RecipeEdit = () => {
       });
     };
 
-    console.log(recipe);
 
     useEffect(() => {
       getRecipe();
@@ -78,12 +79,47 @@ export const RecipeEdit = () => {
 
     const handleAddStep = () => {
       const data = JSON.parse(JSON.stringify(steps));
-      data.push(document.getElementById("cookware-input").value);
-      document.getElementById("cookware-input").value = "";
-      setCookware(data);
+      data.push(document.getElementById("steps-input").value);
+      document.getElementById("steps-input").value = "";
+      setSteps(data);
     }
 
-    return (
+    const handleSave = () => {
+      let newRecipe = {
+        name: document.getElementById("name-input").value
+      }
+      if (document.getElementById("image-input").value) {
+        newRecipe["image"] = document.getElementById("image-input").value;
+      }
+      if (document.getElementById("category-input").value) {
+        newRecipe["category"] = document.getElementById("category-input").value;
+      }
+      if (document.getElementById("cooktime-input").value) {
+        newRecipe["cooktime"] = document.getElementById("cooktime-input").value;
+      }
+      if (ingredients.length !== 0) {
+        newRecipe["ingredients"] = ingredients;
+      }
+      if (cookware.length !== 0) {
+        newRecipe["cookware"] = cookware;
+      }
+      if (steps.length !== 0) {
+        newRecipe["steps"] = steps;
+      }
+      if (document.getElementById("notes-input").value) {
+        newRecipe["notes"] = document.getElementById("notes-input").value;
+      }
+      fetch(`http://localhost:3001/recipe/${name.replace(/ /g, "_")}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newRecipe)
+      })
+      .then(setIsPut(true));
+    }
+
+    return isPut ? <Navigate to={`/recipe/${name}`} /> : (
         <div>
             <div><p>Name: </p><input id="name-input" defaultValue={name} /></div>
             <div><p>Image: </p><input id="image-input" defaultValue={image} /></div>
@@ -135,7 +171,7 @@ export const RecipeEdit = () => {
               </div>
             </div>
             <div><p>Notes: </p><input id="notes-input" defaultValue={notes} /></div>
-            <button>Save</button>
+            <button onClick={handleSave}>Save</button>
         </div>
     );
 }

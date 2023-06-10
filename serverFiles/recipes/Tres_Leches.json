@@ -1,0 +1,16 @@
+{
+	"image": "https://bellyfull.net/wp-content/uploads/2023/04/Tres-Leches-Cake-blog-1.jpg",
+	"name": "Tres Leches",
+	"category": "Dessert",
+	"cooktime": "1 hr 30 min",
+	"ingredients": [
+		"Cake",
+		"Whipped Cream",
+		"3 Milks"
+	],
+	"steps": [
+		"Pour milks over cake",
+		"Spread whipped cream on cake"
+	],
+	"notes": "Delicious"
+}
