@@ -211,7 +211,7 @@ export const RecipeEdit = () => {
             </div>
             <div><p>Notes: </p><input id="notes-input" defaultValue={notes} /></div>
             <button className="save-button" onClick={handleSave}>Save</button>
-            <button className="delete-button" onClick={handleDelete}>Delete</button>
+            <button className="delete-button" style={{"margin-left": "20px"}} onClick={handleDelete}>Delete</button>
             </div>
         </div>
     );
