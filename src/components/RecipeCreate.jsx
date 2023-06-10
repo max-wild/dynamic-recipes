@@ -170,7 +170,7 @@ export const RecipeCreate = () => {
                     })}
                 </ul>
                 <div>
-                    <p>Add: </p><input id="ingredients-input"/><button onClick={handleAddIngredient}>Add</button>
+                    <p>Add: </p><input className = "ingredients-list" id="ingredients-input"/><button onClick={handleAddIngredient}>Add</button>
                 </div>
             </div>
             
