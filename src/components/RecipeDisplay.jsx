@@ -96,6 +96,7 @@ export const RecipeDisplay = () => {
           <div className="action-buttons">
             <a href={`/edit/${recipe.name}`}><i class="fa-solid fa-pen-to-square fa-2xl"></i></a>
             <button onClick={handleExport}><i class="fa-solid fa-file-export fa-2xl"></i></button>
+            <button><i className="fa-regular fa-trash-can fa-2xl"></i></button>
           </div>
           </div>
         </div>

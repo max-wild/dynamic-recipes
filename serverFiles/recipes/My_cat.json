@@ -1,7 +1,1 @@
-{
-	"name": "My cat",
-	"image": "http://placekitten.com/300/300",
-	"category": "",
-	"cooktime": "",
-	"notes": ""
-}
+{"name":"My cat friend","image":"http://placekitten.com/300/300"}
