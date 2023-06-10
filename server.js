@@ -105,6 +105,37 @@ app.put("/recipe/:id", (request, response) => {
     })
 });
 
+// Delete a new recipe
+// Url must have the query "name"
+app.delete("/recipe", (request, response) => {
+
+    if(!request.query.name){
+        console.log("Error in DELETE: No recipe name specified.")
+        return response.status(400).send({"error": "No recipe name specified."});
+    }
+
+    var filepath = path.join("serverFiles", "recipes", `${request.query.name.replace(/ /g, '_')}.json`);
+    if(!fs.existsSync(filepath)){
+        // Stops from overwriting a pre-existing file
+        console.log("Error in DELETE: Recipe doesn't exist.")
+        return response.status(400).send({"error": "Recipe doesn't exist."});
+    }
+
+    fs.unlink(filepath, (err => {
+        if (err){ 
+            console.error(err);
+            response.sendStatus(500);
+            return;
+        }else {
+            response.status(200);
+            response.setHeader('Access-Control-Allow-Origin', '*');
+            response.type('text/plain');
+            response.send("Success");
+            return;
+        }
+    }));
+});
+
 
 /**
  * Shopping HTTP Requests

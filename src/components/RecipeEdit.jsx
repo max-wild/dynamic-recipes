@@ -119,6 +119,22 @@ export const RecipeEdit = () => {
       .then(setIsPut(true));
     }
 
+    const handleDelete = () => {
+
+      const reqName = id.replace("%20", " ").replace(" ", "_");  // Remove all space substitutes
+
+      fetch(`http://localhost:3001/recipe?name=${reqName}`, {
+        method: "DELETE",
+      })
+      .then(res => {
+        if(!res.ok){
+          alert("Server unable to delete recipe");
+          return;
+        }
+        window.location.href = "/";
+      });
+    }
+
     return isPut ? <Navigate to={`/recipe/${name}`} /> : (
         <div className="create-a-recipe">
             <div className="edit-header">
@@ -177,7 +193,8 @@ export const RecipeEdit = () => {
             </div>
             </div>
             <div><p>Notes: </p><input id="notes-input" defaultValue={notes} /></div>
-            <button class="save-button" onClick={handleSave}>Save</button>
+            <button className="save-button" onClick={handleSave}>Save</button>
+            <button className="delete-button" onClick={handleDelete}>Delete</button>
             </div>
         </div>
     );
