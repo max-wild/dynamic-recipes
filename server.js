@@ -105,6 +105,17 @@ app.put("/recipe/:id", (request, response) => {
     })
 });
 
+app.delete("/recipe/:id", (request, response) => {
+    fs.unlink(`./serverFiles/recipes/${request.params.id}.json`, err => {
+        if (err) {
+            console.log(err);
+        }
+        response.status(200);
+        response.type('text/plain');
+        response.send("Success");
+    })
+})
+
 // Delete a new recipe
 // Url must have the query "name"
 app.delete("/recipe", (request, response) => {
