@@ -3,8 +3,6 @@ import React from "react";
 import { RecipeCard } from "./RecipeCard";
 import { useEffect, useState } from "react";
 
-const dummyFolderData = ["Pasta", "Fish", "Vegetarian"];
-
 export const Home = () => {
   const [recipes, setRecipes] = useState([]);
 
@@ -40,13 +38,6 @@ export const Home = () => {
               <div className = "nav-bar">
                   <ul>
                     <h2>Menu</h2>
-
-                    <div className="dropdown">
-                      <span>Folders</span>
-                      <div className="dropdown-content">
-                        {dummyFolderData.map((s, ind) => <a key={ind}>{s}</a>)}
-                      </div>
-                    </div>
 
                     <div className="dropdown">
                       <span>Recipe Actions</span>
