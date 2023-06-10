@@ -308,3 +308,15 @@ a {
 .shopping-cart-title:hover i {
   visibility: hidden;
 }
+
+.create-a-recipe {
+  text-align: left;
+}
+
+.create-a-recipe header {
+  margin-left: 110px;
+}
+
+.create-content {
+  margin-left: 30px;
+}
