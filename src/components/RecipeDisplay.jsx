@@ -52,47 +52,52 @@ export const RecipeDisplay = () => {
         }
 
         return (
-            <div className = "recipes">
-            <div className = "recipe-header">
-              <a href="http://localhost:3000/"><button className="home-button" id="home-icon"><i className="fa-solid fa-house fa-2xl"></i></button></a>
-              <div className = "recipe-title">
-                <header>{recipe.name}</header>
-              </div>
-              {recipe.category && <div className = "recipe-category">
-                <h3>{recipe.category}</h3>
-            </div>}
+          <div className = "recipes">
+          <div className = "recipe-header">
+            <a href="http://localhost:3000/"><button className="home-button" id="home-icon"><i className="fa-solid fa-house fa-2xl"></i></button></a>
+            <div className = "recipe-title">
+              <header>{recipe.name}</header>
             </div>
-            {recipe.image && <div className = "recipe-image">
-              <img src={recipe.image} alt={recipe.name}></img>
-            </div>}
-            <a href={`/edit/${recipe.name}`}>Edit</a>
-            <button onClick={handleExport}>Export</button>
-            {recipe.cooktime && <div className = "cook-prep-time">
-              <p><strong>Cook Time: </strong></p>
-              <p>{recipe.cooktime}</p>
-            </div>}
-            {recipe.ingredients && <div className = "ingredients-list">
-              <p><strong>Ingredients: </strong></p>
-              <ul>
-                {recipe.ingredients.map((i, ind) => <li key={ind}><p>{i}</p><button onClick={() => handleClick(i)}>Add</button></li>)}
-              </ul>
-            </div>}
-            {recipe.cookware && <div className = "recipe-cookware">
-              <p><strong>Cookware: </strong></p>
-              <ul>
-                {recipe.cookware.map((c, ind) => <li key={ind}>{c}</li>)}
-              </ul>
-            </div>}
-            {recipe.steps && <div className = "procedure">
-              <p><strong>Steps: </strong></p>
-              <ol>
-                {recipe.steps.map((s, ind) => <li key={ind}>{s}</li>)}
-              </ol>
-            </div>}
-            {recipe.notes && <div className = "recipe-notes">
-              <p><strong>Notes: </strong></p>
-              <p>{recipe.notes}</p>
+            {recipe.category && <div className = "recipe-category">
+              <h2>Category: </h2> 
+              <h3>{recipe.category}</h3>
             </div>}
           </div>
-        )
-    }
+          {recipe.image && <div className="recipe-image">
+            <img src={recipe.image} alt={recipe.name}></img>
+          </div>}
+          <div className="recipe-content">
+          {recipe.cooktime && <div className = "cook-prep-time">
+            <p><strong>Cook Time: </strong></p>
+            <p>{recipe.cooktime}</p>
+          </div>}
+          {recipe.ingredients && <div className = "ingredients-list">
+            <p><strong>Ingredients: </strong></p>
+            <ul>
+              {recipe.ingredients.map((i) => <li><p>{i}</p><button onClick={() => handleClick(i)}><i class="fa-solid fa-cart-plus"></i></button></li>)}
+            </ul>
+          </div>}
+          {recipe.cookware && <div className = "recipe-cookware">
+            <p><strong>Cookware: </strong></p>
+            <ul>
+              {recipe.cookware.map((c) => <li>{c}</li>)}
+            </ul>
+          </div>}
+          {recipe.steps && <div className = "procedure">
+            <p><strong>Steps: </strong></p>
+            <ol>
+              {recipe.steps.map((s) => <li>{s}</li>)}
+            </ol>
+          </div>}
+          {recipe.notes && <div className = "recipe-notes">
+            <p><strong>Notes: </strong></p>
+            <p>{recipe.notes}</p>
+          </div>}
+          <div className="action-buttons">
+            <a href={`/edit/${recipe.name}`}><i class="fa-solid fa-pen-to-square fa-2xl"></i></a>
+            <button onClick={handleExport}><i class="fa-solid fa-file-export fa-2xl"></i></button>
+          </div>
+          </div>
+        </div>
+      )
+  }
