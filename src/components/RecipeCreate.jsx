@@ -145,19 +145,21 @@ export const RecipeCreate = () => {
     }
 
     return (
-        <div>
+        <div className="create-a-recipe">
             <div className="shopping-list-header">
+                <a href="http://localhost:3000/"><button className="home-button" id="home-icon">
+                <i className="fa-solid fa-house fa-2xl"></i></button></a>
                 <header>Create a Recipe:</header>
             </div>
             
+            <div className="create-content">
             <p>warning cookware is temporarily kind of buggy since it's tyler's old code copy-pasted</p>
-
+            <div>
             <div><p>Name: </p><input id="name-input" /></div>
             <div><p>Image: </p><input id="image-input" /></div>
             <div><p>Category: </p><input id="category-input" /></div>
             <div><p>Cooktime: </p><input id="cooktime-input" /></div>
             
-            <div>
                 <p>Ingredients</p>
                 <ul>
                     {ingredients.map((i, ind) => {
@@ -208,6 +210,7 @@ export const RecipeCreate = () => {
             <div><p>Notes: </p><input id="notes-input" /></div>
             
             <button onClick={() => attemptCreateRecipe()}>Create</button>
+            </div>
         </div>
     )
 }
