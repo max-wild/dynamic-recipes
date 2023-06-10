@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export const RecipeEdit = () => {
     const navigate = useNavigate();
 
-    const [isPut, setIsPut] = useState(false);
+    const [isPut, setIsPut] = useState("");
 
     const {id} = useParams();
     const [recipe, setRecipe] = useState({});
@@ -109,14 +109,31 @@ export const RecipeEdit = () => {
       if (document.getElementById("notes-input").value) {
         newRecipe["notes"] = document.getElementById("notes-input").value;
       }
-      fetch(`http://localhost:3001/recipe/${name.replace(/ /g, "_")}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(newRecipe)
-      })
-      .then(setIsPut(true));
+      if (newRecipe.name !== recipe.name) {
+        fetch(`http://localhost:3001/recipe/${recipe.name.replace(/ /g, "_")}`, {
+          method: "DELETE"
+        })
+        .then(
+          fetch(`http://localhost:3001/recipe`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newRecipe)
+          })
+          .then(setIsPut(true))
+        );
+      }
+      else {
+        fetch(`http://localhost:3001/recipe/${newRecipe.name.replace(/ /g, "_")}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(newRecipe)
+        })
+        .then(setIsPut(true));
+      }
     }
 
     const handleDelete = () => {
