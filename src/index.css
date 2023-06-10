@@ -160,6 +160,10 @@ a {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
+.recipe-category h2 {
+  font-family: sans-serif;
+}
+
 .recipes ul {
   text-align: left;
   padding-left: 8%;
@@ -232,6 +236,10 @@ a {
 
 .shopping-list-items:hover p {
   cursor: default;
+}
+
+.shopping-list h2 {
+  font-family: sans-serif;
 }
 
 .shopping-list-items button {
